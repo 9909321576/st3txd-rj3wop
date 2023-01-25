@@ -1,0 +1,759 @@
+/* ******************* chapter 0 - css reset and :root elements ******************* */
+
+/* css reset */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  /* cursor: default; */
+}
+
+a{
+  cursor: pointer !important;
+}
+
+/* root variables */
+:root{
+  /* root sizes */
+  --nav-height : 50px;
+
+
+  /* root colors */
+  --nav-color : #022140;
+  --nav-text : white;
+  --hover-color :rgb(12, 11, 13);
+  --hover-text: rgb(26, 151, 170);
+
+}
+/* body styles */
+body{
+  /* height : 1200vh; */
+}
+/* ******************* Chapter 1 - home page ******************* */
+
+/* ********* part 1 slider ********* */
+
+/* slider animation keyframe */
+@keyframes slider {
+  0%{background: rgba(9,9,9,0.7) url(https://ocean-airfreight.com/wp-content/uploads/2021/06/logistics-companies-in-Calgary-1-1024x585.jpg) no-repeat center center/cover;}
+  16.67%{background: rgba(9,9,9,0.7) url(https://ocean-airfreight.com/wp-content/uploads/2021/06/logistics-companies-in-Calgary-1-1024x585.jpg) no-repeat center center/cover;}
+  33.33%{background: rgba(9,9,9,0.7) url(../images/slider3.jpg) no-repeat center center/cover;}
+  50%{background: rgba(9,9,9,0.7) url(../images/slider4.jpg) no-repeat center center/cover;}
+  66.66%{background: rgba(9,9,9,0.7) url(../images/slider5.jpg) no-repeat center center/cover;}
+  80.33%{background: rgba(9,9,9,0.7) url(../images/slider6.jpg) no-repeat center center/cover;}
+}
+
+/* slider */
+.slider{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  background: rgba(9,9,9,0.7) url(../images/slider1.jpg) no-repeat center center/cover;
+  background-blend-mode: darken;
+  animation: slider 36s infinite  cubic-bezier(.14,.82,.25,.86) 1s;
+}
+
+/* slider heading */
+.slider .heading{
+  font-weight: 900;
+  font-size: 50px;
+  color: var(--nav-text);
+  text-shadow: 0 0 5px #fff, 
+  0 0 6px #ff4da6, 
+  0 0 7px #ff4da6, 
+  0 0 8px #ff4da6, 
+  0 0 9px #ff4da6, 
+  0 0 10px #ff4da6, 
+  0 0 11px #ff4da6;
+}
+
+/* static text */
+.slider .static{
+  font-weight: 600;
+  font-size: 45px;
+  color: var(--nav-text);
+  text-shadow: 0 0 5px #fff, 
+  0 0 6px #fff, 
+  0 0 7px #2e00e6, 
+  0 0 8px #6300e6, 
+  0 0 9px #c300e6, 
+  0 0 10px #e200e6, 
+  0 0 11px #e600ca;
+}
+
+/* dynamic text animation keyframe*/
+@keyframes dynamic-text {
+  0%{content: "Life";}
+  16.66%{content: "Acadmics";}
+  33.33%{content: "Creativity";}
+  50%{content: "Knowledge";}
+  66.66%{content: "Art And Culture";}
+  80.33%{content: "Sports & Fitness";}
+}
+
+.slider .dynamic::after{
+  content: "Life";
+  animation: dynamic-text 36s infinite  cubic-bezier(.14,.82,.25,.86) 1s;
+}
+
+/* sub-heading */
+.slider .sub-heading{
+  font-weight: 900;
+  font-size: 40px;
+  color: var(--nav-text);
+  text-shadow: 0 0 10px #00bbff,
+  0 0 20px #00bbff,
+  0 0 40px #00bbff,
+  0 0 80px #00bbff,
+  0 0 120px #00bbff,
+  0 0 200px #00bbff,
+  0 0 300px #00bbff,
+  0 0 400px #00bbff;
+}
+
+/* ********* part 2 Universal nav-bar used in all the user side pages ********* */
+/* navigation bar */
+#nav-bar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--nav-height);
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: var(--nav-color);
+  color: var(--nav-text);
+  border-bottom: 1px solid grey;
+}
+
+/* logo */
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 100%;
+}
+
+/* text inside logo */
+.logo h1{
+  text-align: center;
+}
+
+/* navigation bar div */
+#nav-container{
+  display: inline-flex;
+  height: 100%;
+  width: 70%;
+}
+
+/* navigation bar ul */
+.nav-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* navigation bar li */
+.nav-list > .nav-item{
+  list-style: none;
+}
+
+/* navigation bar a tag */
+.nav-list > .nav-item > .nav-link{
+  display: inline-block;
+  text-decoration: none;
+  font-size: x-large;
+  font-weight: 900;
+  padding: 10px 15px;
+  width: 13rem;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  height: 100%;
+  color: var(--nav-text);
+}
+
+/* navigation bar on hover */
+.nav-list .nav-item:hover .nav-link, a:active{
+  background-color: var(--hover-color);
+  color: var(--hover-text);
+  text-decoration: underline;
+}
+
+/* sub menu of nevigation bar */
+.sub-menu{
+  display: none;
+  position: absolute;
+  background-color: var(--nav-color);
+  color: var(--nav-text);
+}
+
+/* sub menu list item */
+.sub-menu > .sub-menu-item{
+  list-style: none;
+}
+
+/* sub menu a tag */
+.sub-menu > .sub-menu-item > .sub-menu-link{
+  display: inline-block;
+  text-decoration: none;
+  font-size: large;
+  font-weight: 700;
+  padding: 10px 15px;
+  width: 13rem;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  height: 100%;
+  color: var(--nav-text);
+}
+
+/* sub menu hover effect */
+.sub-menu > .sub-menu-item:hover .sub-menu-link{
+  background-color: var(--hover-color);
+  color: var(--hover-text);
+  text-decoration: underline;
+}
+
+/* visibility on hover of sub menu */
+.nav-list .nav-item:hover .sub-menu{
+  display:flex;
+  flex-direction: column;
+}
+
+/* ********* part 3 About Us ********* */
+/* css for main */
+#About{ /* main starts */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* height: 80px; */
+  font-size: 70px;
+  font-weight: 900;
+  border: 2px solid grey;
+  padding: 10px 0;
+}
+
+/* about section containing grid */
+#about{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  
+}
+
+/* grid items of the about section */
+.about-item{
+  height: calc(100vh - var(--nav-height));
+  width: 100%;
+  border: 2px solid gray;
+}
+
+/* ul of the about that contains verbel details */
+.about-quality-list{
+  width: 80%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items: center;
+}
+
+/* li of the about that contains verbel details */
+.about-quality{
+  list-style: none;
+  width: 100%;
+  text-align: center;
+  font-size: 80px;
+  font-weight: 900;
+}
+
+/* coloring the boxes */
+#about > .about-item:nth-child(4n+1), #about > .about-item:nth-child(4n){
+  background-color: orange;
+}
+
+/* adding images to the empty boxes */
+#about-item-image-1{
+  background: url(../images/about1.jpg) no-repeat top center/cover;
+}
+
+#about-item-image-2{
+  background: url(../images/about2.jpg) no-repeat center center/cover;
+}
+
+/* adding multiple images to a single box */
+.about-item-mul-img{
+  display: flex;
+}
+
+#about-item-image-3-part-1{
+  width: 50%;
+  height: 100%;
+  background: url(../images/about3.1.jpg) no-repeat center center/cover;
+}
+
+#about-item-image-3-part-2{
+  width: 50%;
+  height: 100%;
+  background: url(../images/about3.2.jpg) no-repeat center center/cover;
+}
+
+/* ********* part 3 footer and contact us information ********* */
+
+/* finally Footer */
+#footer{
+  width: 100%;
+  height: 100vh;
+  background-color: var(--nav-color);
+  color: var(--nav-text);
+}
+
+/* on clicking contact us  */
+#contact{
+  /* background-color: rgb(9, 113, 148); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* height: 80px; */
+  font-size: 70px;
+  font-weight: 900;
+  /* border-bottom: 2px solid grey; */
+  padding: 10px 0;
+}
+
+/* division for logo and contact-info */
+.footer-flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  width: 100%;
+}
+
+/* contact information to the left */
+.contact-info{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+  height: 70%;
+  width: 50%;
+}
+
+/* ul inside the contact info */
+.contact-list{
+  /* padding-left: 30px; */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  width: 50%;
+}
+
+/* li inside the contact info */
+.contact-item{
+  list-style: none;
+  font-size: x-large;
+  margin: 10px
+}
+
+/* icons in contact */
+.contact-item i{
+  font-size: 40px;
+  margin: 5px 25px;
+  cursor: pointer !important;
+}
+
+/* special hover effect to icons */
+.contact-item i:hover{
+  color: var(--hover-text);
+}
+
+/* footer logo box */
+.footer-logo{
+  border-left: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+/* logo images */
+.footer-logo img{
+  height: 30vh;
+  border-radius: 50px;
+}
+
+/* logo title text */
+.footer-logo-text{
+  font-size: 60px;
+  font-weight: 900;
+  padding: 10px 0;
+}
+
+/* logo address */
+.address{
+  font-size: 30px;
+}
+
+/* copyrights */
+.end{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+}
+.end span{
+  color: yellow;
+}
+
+/* ******************* Chapter 2 - login pages ******************* */
+
+/* navigation bar isa already defined */
+
+/* student log in page */
+
+/* main for login page */
+.student-login-main{
+  display: flex;
+  height: calc(100vh - var(--nav-height));
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* section inside main for the text and form */
+.student-form-section{
+  width: 90%;
+  display: flex;
+  height: 80%;
+}
+
+.student-login-aside-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 55%;
+  /* border: 2px solid black; */
+}
+
+.student-login-aside-title{
+  font-size: 50px;
+  font-weight: 900;
+  padding: 0 10px;
+}
+
+.student-login-aside-sub-text{
+  font-size: 30px;
+  font-weight: 500;
+  padding: 20px 10px;
+}
+
+.student-login-form{
+  width: 45%;
+  /* border: 1px solid black; */
+  background-color: var(--nav-color);    
+  color: var(--nav-text);
+  border-radius: 10px;
+}
+
+.student-form-title{
+  /* text-align: center; */
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin : 20px; */
+  font-size: 35px;
+  font-weight: 900;
+}
+
+.student-login-form form{
+  height:80%;
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: flex-start; */
+}
+
+.student-login-form form label{
+  font-size: 25px;
+  font-weight: 300;
+  margin: 10px;
+}
+
+.student-login-form form input{
+  font-size: 17px;
+  font-weight: 200;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.student-login-form form input[type='submit']{
+  margin-top: 50px;
+}
+
+/* teacher log in page */
+
+.teacher-login-main{
+  display: flex;
+  height: calc(100vh - var(--nav-height));
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* section inside main for the text and form */
+.teacher-form-section{
+  width: 90%;
+  display: flex;
+  height: 80%;
+}
+
+.teacher-login-aside-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 55%;
+  /* border: 2px solid black; */
+}
+
+.teacher-login-aside-title{
+  font-size: 50px;
+  font-weight: 900;
+  padding: 0 10px;
+}
+
+.teacher-login-aside-sub-text{
+  font-size: 30px;
+  font-weight: 500;
+  padding: 20px 10px;
+}
+
+.teacher-login-form{
+  width: 45%;
+  /* border: 1px solid black; */
+  background-color: var(--nav-color);    
+  color: var(--nav-text);
+  border-radius: 10px;
+}
+
+.teacher-form-title{
+  /* text-align: center; */
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin : 20px; */
+  font-size: 35px;
+  font-weight: 900;
+}
+
+.teacher-login-form form{
+  height:80%;
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: flex-start; */
+}
+
+.teacher-login-form form label{
+  font-size: 25px;
+  font-weight: 300;
+  margin: 10px;
+}
+
+.teacher-login-form form input{
+  font-size: 17px;
+  font-weight: 200;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.teacher-login-form form input[type='submit']{
+  margin-top: 50px;
+}
+
+/* parent log in page */
+
+.parent-login-main{
+  display: flex;
+  height: calc(100vh - var(--nav-height));
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* section inside main for the text and form */
+.parent-form-section{
+  width: 90%;
+  display: flex;
+  height: 80%;
+}
+
+.parent-login-aside-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 55%;
+  /* border: 2px solid black; */
+}
+
+.parent-login-aside-title{
+  font-size: 50px;
+  font-weight: 900;
+  padding: 0 10px;
+}
+
+.parent-login-aside-sub-text{
+  font-size: 30px;
+  font-weight: 500;
+  padding: 20px 10px;
+}
+
+.parent-login-form{
+  width: 45%;
+  /* border: 1px solid black; */
+  background-color: var(--nav-color);    
+  color: var(--nav-text);
+  border-radius: 10px;
+}
+
+.parent-form-title{
+  /* text-align: center; */
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin : 20px; */
+  font-size: 35px;
+  font-weight: 900;
+}
+
+.parent-login-form form{
+  height:80%;
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: flex-start; */
+}
+
+.parent-login-form form label{
+  font-size: 25px;
+  font-weight: 300;
+  margin: 10px;
+}
+
+.parent-login-form form input{
+  font-size: 17px;
+  font-weight: 200;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.parent-login-form form input[type='submit']{
+  margin-top: 50px;
+}
+
+/* admin log in page */
+
+.admin-login-main{
+  display: flex;
+  height: calc(100vh - var(--nav-height));
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* section inside main for the text and form */
+.admin-form-section{
+  width: 90%;
+  display: flex;
+  height: 80%;
+}
+
+.admin-login-aside-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 55%;
+  /* border: 2px solid black; */
+}
+
+.admin-login-aside-title{
+  font-size: 50px;
+  font-weight: 900;
+  padding: 0 10px;
+}
+
+.admin-login-aside-sub-text{
+  font-size: 30px;
+  font-weight: 500;
+  padding: 20px 10px;
+}
+
+.admin-login-form{
+  width: 45%;
+  /* border: 1px solid black; */
+  background-color: var(--nav-color);    
+  color: var(--nav-text);
+  border-radius: 10px;
+}
+
+.admin-form-title{
+  /* text-align: center; */
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin : 20px; */
+  font-size: 35px;
+  font-weight: 900;
+}
+
+.admin-login-form form{
+  height:80%;
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: flex-start; */
+}
+
+.admin-login-form form label{
+  font-size: 25px;
+  font-weight: 300;
+  margin: 10px;
+}
+
+.admin-login-form form input{
+  font-size: 17px;
+  font-weight: 200;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.admin-login-form form input[type='submit']{
+  margin-top: 50px;
+}

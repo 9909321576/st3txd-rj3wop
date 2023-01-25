@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav id="nav-bar">
+      <div class="logo">
+        <h1 class="logo-text">Success Academy</h1>
+      </div>
+      <div id="nav-container">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="index.html#" class="nav-link"
+              ><i class="fa-solid fa-house"></i> Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="index.html#About" class="nav-link"
+              ><i class="fa-solid fa-user"></i> About Us</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link"
+              ><i class="fa-solid fa-right-to-bracket"></i> Login</a
+            >
+            <ul class="sub-menu">
+              <li class="sub-menu-item">
+                <a href="student_login.html" class="sub-menu-link"
+                  ><i class="fa-solid fa-book-open-reader"></i> As A Student</a
+                >
+              </li>
+              <li class="sub-menu-item">
+                <a href="teacher_login.html" class="sub-menu-link"
+                  ><i class="fa-solid fa-chalkboard-user"></i> As A Teacher</a
+                >
+              </li>
+              <li class="sub-menu-item">
+                <a href="parent_login.html" class="sub-menu-link"
+                  ><i class="fa-solid fa-person"></i> As A Parent</a
+                >
+              </li>
+              <li class="sub-menu-item">
+                <a href="admin_login.html" class="sub-menu-link"
+                  ><i class="fa-solid fa-crown"></i> As An Admin</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#contact" class="nav-link"
+              ><i class="fa-solid fa-phone"></i> Contact Us</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="admin-login-main">
+      <section class="admin-form-section">
+        <div class="admin-login-aside-text">
+          <div class="admin-login-aside-title">Success Academy</div>
+          <div class="admin-login-aside-sub-text">
+            Healping you to be successful in every sphere of life
+          </div>
+        </div>
+        <div class="admin-login-form">
+          <div class="admin-form-title"><div>Admin Login</div></div>
+          <form action="admin_login.php" method="post">
+            <label for="admin_id">Admin Id :</label>
+            <input
+              type="text"
+              name="admin_id"
+              id="admin_id"
+              placeholder="Enter admin ID"
+            />
+            <label for="admin_password">Password :</label>
+            <input
+              type="password"
+              name="admin_password"
+              id="admin_password"
+              placeholder="Enter Your Password"
+            />
+            <input type="submit" value="submit" name="submit" />
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
